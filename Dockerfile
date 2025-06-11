@@ -33,4 +33,3 @@ RUN apk add --update --no-cache bash ca-certificates fuse
 
 COPY --from=builder /tmp/bin/gcsfuse /usr/local/bin/gcsfuse
 COPY --from=builder /tmp/sbin/mount.gcsfuse /usr/sbin/mount.gcsfuse
-ENTRYPOINT ["gcsfuse", "-o", "allow_other", "--foreground", "--implicit-dirs", "/gcs"]
