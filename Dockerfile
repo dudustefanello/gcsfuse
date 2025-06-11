@@ -29,7 +29,7 @@ RUN build_gcsfuse . /tmp $(git log -1 --format=format:"%H")
 
 FROM alpine:3.21
 
-RUN apk add --update --no-cache bash ca-certificates fuse
+RUN apk add --update --no-cache bash ca-certificates fuse rsync
 
 COPY --from=builder /tmp/bin/gcsfuse /usr/local/bin/gcsfuse
 COPY --from=builder /tmp/sbin/mount.gcsfuse /usr/sbin/mount.gcsfuse
